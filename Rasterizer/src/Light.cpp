@@ -78,7 +78,7 @@ Color Light::CalculateColor(const Color p_color, const Vec3 p_surface, Vec4 p_ve
 
 	float specAngle = std::max(Vec3::GetDotProduct(reflectedLightVector, homogenizedVec), 0.0f);
 	float lambertian = std::max(Vec3::GetDotProduct(normalSurface, lightPosNormal), 0.0f);
-	float specular = std::pow(specAngle, 1.0);
+	float specular = std::powf(specAngle, 1.0);
 
 	float r = (m_ambientComponent * p_color.m_r) + (m_diffuseComponent * lambertian * p_color.m_r) + (m_specularComponent * specular * p_color.m_r);
 	float g = (m_ambientComponent * p_color.m_g) + (m_diffuseComponent * lambertian * p_color.m_g) + (m_specularComponent * specular * p_color.m_g);

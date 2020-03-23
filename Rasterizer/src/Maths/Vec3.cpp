@@ -119,7 +119,7 @@ Vec3 Vec3::GetSubstractsVector(const Vec3 & p_firstVector, const Vec3 & p_second
 
 float Vec3::GetMagnitude() const
 {
-	return sqrt(m_x * m_x + m_y * m_y + m_z * m_z);
+	return sqrtf(m_x * m_x + m_y * m_y + m_z * m_z);
 }
 
 void Vec3::Normalize()

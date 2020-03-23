@@ -113,7 +113,7 @@ float Vec4::GetDotProduct(const Vec4 & p_firstVector, const Vec4 & p_secondVecto
 
 float Vec4::GetMagnitude() const
 {
-	return sqrt(m_x * m_x + m_y * m_y + m_z * m_z + m_w * m_w);
+	return sqrtf(m_x * m_x + m_y * m_y + m_z * m_z + m_w * m_w);
 }
 
 

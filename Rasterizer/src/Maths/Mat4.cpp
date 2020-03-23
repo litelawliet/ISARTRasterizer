@@ -92,8 +92,8 @@ Mat4 Mat4::CreateRotationMatrix(const float p_angle, const Vec3 & p_rotation)
 {
 	Mat4 tmp{ 0.0f };
 
-	const auto c = cos(p_angle * 3.1415926535f / 180.0f);
-	const auto s = sin(p_angle * 3.1415926535f / 180.0f);
+	const auto c = cosf(p_angle * 3.1415926535f / 180.0f);
+	const auto s = sinf(p_angle * 3.1415926535f / 180.0f);
 
 	tmp.m_matrix[0][0] = p_rotation.m_x * p_rotation.m_x * (1 - c) + c;
 	tmp.m_matrix[1][0] = p_rotation.m_x * p_rotation.m_y * (1 - c) + p_rotation.m_z * s;
@@ -116,8 +116,8 @@ Mat4 Mat4::CreateXRotationMatrix(const float p_angle)
 {
 	Mat4 tmp{ 0.0f };
 
-	const auto cosine = cos(p_angle);
-	const auto sinus = sin(p_angle);
+	const auto cosine = cosf(p_angle);
+	const auto sinus = sinf(p_angle);
 
 	tmp.m_matrix[0][0] = 1.0f;
 	tmp.m_matrix[1][1] = cosine;
@@ -133,8 +133,8 @@ Mat4 Mat4::CreateYRotationMatrix(const float p_angle)
 {
 	Mat4 tmp{ 0.0f };
 
-	const auto cosine = cos(p_angle);
-	const auto sinus = sin(p_angle);
+	const auto cosine = cosf(p_angle);
+	const auto sinus = sinf(p_angle);
 
 	tmp.m_matrix[0][0] = cosine;
 	tmp.m_matrix[0][2] = sinus;
@@ -150,8 +150,8 @@ Mat4 Mat4::CreateZRotationMatrix(const float p_angle)
 {
 	Mat4 tmp{ 0.0f };
 
-	const auto cosine = cos(p_angle);
-	const auto sinus = sin(p_angle);
+	const auto cosine = cosf(p_angle);
+	const auto sinus = sinf(p_angle);
 
 	tmp.m_matrix[0][0] = cosine;
 	tmp.m_matrix[0][1] = -sinus;

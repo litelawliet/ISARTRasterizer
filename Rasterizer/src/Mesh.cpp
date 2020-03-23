@@ -78,16 +78,16 @@ std::shared_ptr<Mesh> Mesh::CreateSphere(const int p_latitudeCount, const int p_
     const int sectorCount = p_longitudeCount;
     const int stackCount  = p_latitudeCount;
 
-    float sectorStep  = 2 * mPi / sectorCount;
-    float stackStep   = mPi / stackCount;
+    float sectorStep  = 2 * mPi / static_cast<float>(sectorCount);
+    float stackStep   = mPi / static_cast<float>(stackCount);
     float sectorAngle = 0.0f;
     float stackAngle  = 0.0f;
 
-    for (int i = 0; i <= stackCount; ++i)
+    for (auto i = 0; i <= stackCount; ++i)
     {
         stackAngle = mPi / 2 - i * stackStep;  // starting from pi/2 to -pi/2
-        xy         = radius * cos(stackAngle); // r * cos(u)
-        z          = radius * sin(stackAngle); // r * sin(u)
+        xy         = radius * cosf(stackAngle); // r * cos(u)
+        z          = radius * sinf(stackAngle); // r * sin(u)
 
         // add (sectorCount+1) vertices per stack
         // the first and last vertices have same position and normal, but different tex coords
@@ -96,8 +96,8 @@ std::shared_ptr<Mesh> Mesh::CreateSphere(const int p_latitudeCount, const int p_
             sectorAngle = j * sectorStep;
 
             // vertex position (x, y, z)
-            x = xy * cos(sectorAngle); // r * cos(u) * cos(v)
-            y = xy * sin(sectorAngle); // r * cos(u) * sin(v)
+            x = xy * cosf(sectorAngle); // r * cos(u) * cos(v)
+            y = xy * sinf(sectorAngle); // r * cos(u) * sin(v)
             (*mesh).m_vertices.emplace_back(x, y, z);
 
             // vertex normal (nx, ny, nz)
